@@ -1,13 +1,13 @@
 const express=require("express");
 const router=express.Router();
-const Address=require("../models/address.model");
+const Payment=require("../models/payment.model");
 
 
 
 router.get("",async(req,res)=>{
     try{
-       const address=await Address.find().lean().exec()
-        return res.status(200).send(address)
+       const payment=await Payment.find().lean().exec()
+        return res.status(200).send(payment)
     }
     catch(err){
         return res.status(500).send({message:err.message});
@@ -16,8 +16,8 @@ router.get("",async(req,res)=>{
 
 router.post("",async(req,res)=>{
     try{
-        const addressyment=await Address.create(req.body);
-        return res.status(201).send(address); 
+        const payment=await Payment.create(req.body);
+        return res.status(201).send(payment); 
 
     }
     catch(err){

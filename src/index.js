@@ -3,13 +3,15 @@ const connect =require("./configs/db")
 const { register, login } = require("./controllers/auth.controller");
 const userController= require("./controllers/user.controller")
 const productController=require("./controllers/product.controller");
-const addressController =require("./controllers/address.controller")
+const paymentController =require("./controllers/payment.controller");
+const addressController=require("./controllers/address.controller")
 const cors=require("cors");
 const app = express();
 app.use(express.json());
 app.use(cors());
 
 app.use("/products",productController);
+app.use("/payment",paymentController);
 app.use("/address",addressController);
 app.use("/users",userController)
 
