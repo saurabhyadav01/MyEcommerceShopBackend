@@ -4,7 +4,8 @@ const { register, login } = require("./controllers/auth.controller");
 const userController= require("./controllers/user.controller")
 const productController=require("./controllers/product.controller");
 const paymentController =require("./controllers/payment.controller");
-const addressController=require("./controllers/address.controller")
+const addressController=require("./controllers/address.controller");
+const cartController=require("./controllers/cart.controller")
 const cors=require("cors");
 const app = express();
 app.use(express.json());
@@ -14,7 +15,7 @@ app.use("/products",productController);
 app.use("/payment",paymentController);
 app.use("/address",addressController);
 app.use("/users",userController)
-
+app.use("/carts",cartController)
 app.post("/register", register)
 app.post("/login", login)
 
